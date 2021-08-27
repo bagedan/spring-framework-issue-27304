@@ -13,14 +13,18 @@ public class Controller {
     public Mono<Item> createWithoutReqBody(Item item) {
         // Unable to read Item, but able to get the request's body
         // ....
-
-        return Mono.just(new Item("test"));
+        System.out.println("Request: " + item);
+        throw new RuntimeException("exception");
+//        return Mono.just(new Item("test"));
     }
 
     @PostMapping(value = "/itemWithRequestBody")
     public Mono<Item> createWithRequestBody(@RequestBody Item item) {
         // Could read Item, but unable to get the request's body
         // ....
-        return Mono.just(new Item("test"));
+        System.out.println("Request: " + item);
+        throw new RuntimeException("exception");
+
+//        return Mono.just(new Item("test"));
     }
 }
